@@ -1,0 +1,10 @@
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+[build]
+  command = "npm run generate"
+  publish = ".output/public"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Force le rendu 100% statique : sans ça, Netlify auto-détecte Nuxt
+  # et injecte NITRO_PRESET=netlify (qui produirait du SSR via functions).
+  NITRO_PRESET = "static"
